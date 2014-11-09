@@ -65,8 +65,11 @@ telescope-kadira
 telescope-update-prompt
 telescope-notifications
 telescope-kadira
+telescope-static-pages
 
 # Accounts Templates
 service-configuration
 accounts-ui
 splendido:accounts-templates-unstyled
+
+
