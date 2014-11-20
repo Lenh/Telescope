@@ -68,8 +68,8 @@ telescope-update-prompt
 telescope-kadira
 
 telescope-notifications
-telescope-kadira
-telescope-static-pages
 
 # Accounts Templates
 useraccounts:unstyled
+telescope-appshunt
+
