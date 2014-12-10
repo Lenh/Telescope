@@ -1,0 +1,23 @@
+{
+  "name": "telescope-module-embedly",
+  "summary": "Telescope Embedly module package",
+  "version": "0.2.9+3fc62a8ff0ce03e399e3eb203b73ef26324a0d8f",
+  "earliestCompatibleVersion": "0.0.0",
+  "isTest": false,
+  "plugins": [],
+  "unibuilds": [
+    {
+      "arch": "os",
+      "path": "os.json"
+    },
+    {
+      "arch": "web.browser",
+      "path": "web.browser.json"
+    },
+    {
+      "arch": "web.cordova",
+      "path": "web.cordova.json"
+    }
+  ],
+  "format": "unipackage-pre2"
+}

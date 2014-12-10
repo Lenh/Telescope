@@ -8,7 +8,7 @@ Template[getTemplate('notificationsMenu')].helpers({
   hasNotifications: function () {
     return !!Herald.collection.find({userId: Meteor.userId(), read: false}, {sort: {timestamp: -1}}).count();    
   },
-  notification_count: function(){
+  notificationCount: function(){
     var notifications=Herald.collection.find({userId: Meteor.userId(), read: false}).fetch();
     return ''+notifications.length;
     /*if(notifications.length==0){
@@ -32,7 +32,7 @@ Template[getTemplate('notificationsMenu')].events({
     $('body').toggleClass('notifications-open');
   },
   'click .mark-as-read': function(){
-    Meteor.call('markAllNotificationsAsRead', 
+    Meteor.call('heraldMarkAllAsRead', 
       function(error, result){
         error && console.log(error);
       }
