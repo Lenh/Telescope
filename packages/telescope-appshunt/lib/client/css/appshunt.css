@@ -1,0 +1,105 @@
+body {
+	background-color: #eee;
+}
+
+.help-headers {
+  font-size: 30px !important;
+  margin-top: 14px !important;
+  margin-bottom: 0px !important;
+}
+
+.nav-avatar img {
+	vertical-align: middle;
+}
+
+.notification-icon {
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
+}
+
+.notification-link {
+	padding: 10px;
+}
+
+.notification-count {
+	color: #DD3416;
+}
+
+.notification-badge {
+  display: block;
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  padding: 0 6px;
+  color: white;
+  border-radius: 16px;
+  background-color: #DD3416;
+  font-size: smaller;
+  font-weight: bold;
+}
+
+.post-score {
+	display: block;
+	height: 20px;
+	width: 100%;
+	line-height: 20px;
+	font-size: 15px;
+	color: #b3c1c6;
+	pointer-events: none;
+	text-align: center;
+	font-weight: bold;
+}
+
+.post-user {
+	position: relative; 
+}
+  
+.post-user > a {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    vertical-align: baseline;
+    text-align: center;
+    color: #b3c1c6;
+    font-size: 36px;
+    line-height: 50px; }
+
+
+.post-user > a.user-link {
+	color: #b3c1c6; 
+}
+
+.post-user > a:hover {
+	color: #DD3416; 
+}
+.post-user > a .action {
+	display: block;
+	height: 20px;
+	width: 100%;
+	line-height: 20px;
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	font-size: 13px;
+	pointer-events: none; 
+}
+
+.post-avatar {
+	margin: 0 auto;
+}
+
+.post-avatar img {
+	vertical-align: middle;
+}
+
+.at-error {
+  margin-bottom: 10px;
+  text-align: center;
+  background: #DD3416;
+  color: white; 
+  border-radius: 3px;
+}

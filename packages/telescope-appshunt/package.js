@@ -15,18 +15,23 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.use([
-    'templating'
+    'templating',
+    'telescope-theme-hubble'
   ], ['client']);
 
   api.add_files([
-    'lib/client/templates/about.html',
+    'lib/appshunt_client.js',
     'lib/client/templates/help.html',
     'lib/client/templates/welcome.html',
-    'lib/client/static_pages.js',
-    'lib/client/appshunt.js'
+    'lib/client/templates/post.html',
+    'lib/client/templates/post.js',   
+    'lib/client/templates/nav.html',
+    'lib/client/templates/nav.js',    
+    'lib/client/css/appshunt.css'
   ], ['client']);
   
   api.add_files([
+  	'lib/appshunt_server.js', 
   	'lib/server/test.js',
   	'lib/server/users.js'
   ], ['server']);

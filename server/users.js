@@ -87,6 +87,8 @@ Accounts.onCreateUser(function(options, user){
     }
   });
 
+  Accounts.sendEnrollmentEmail(Meteor.userId());
+
   return user;
 });
 

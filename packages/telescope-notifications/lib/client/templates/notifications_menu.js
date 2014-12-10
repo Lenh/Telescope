@@ -10,13 +10,14 @@ Template[getTemplate('notificationsMenu')].helpers({
   },
   notification_count: function(){
     var notifications=Herald.collection.find({userId: Meteor.userId(), read: false}).fetch();
-    if(notifications.length==0){
+    return ''+notifications.length;
+    /*if(notifications.length==0){
       return i18n.t('No notifications');
     }else if(notifications.length==1){
       return i18n.t('1 notification');
     }else{
       return notifications.length+' '+i18n.t('notifications');
-    }
+    }*/
   },
   notification_class: function(){
     var notifications=Herald.collection.find({userId: Meteor.userId(), read: false}).fetch();
