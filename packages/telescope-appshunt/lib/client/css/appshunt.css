@@ -97,9 +97,20 @@ body {
 }
 
 .at-error {
-  margin-bottom: 10px;
-  text-align: center;
-  background: #DD3416;
-  color: white; 
-  border-radius: 3px;
+	margin-bottom: 10px;
+	text-align: center;
+	background: #DD3416;
+	color: white; 
+	border-radius: 3px;
+}
+
+.has-error span {
+	margin-bottom: 10px;
+	text-align: center;
+	background: #DD3416;
+	color: white; 
+	border-radius: 3px;
+	display: block;
+	margin-top: 3px;
+	padding: 3px;	
 }

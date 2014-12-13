@@ -19,6 +19,10 @@ Package.onUse(function (api) {
     'telescope-theme-hubble'
   ], ['client']);
 
+  api.use([
+	'cmather:handlebars-server'
+  ], ['server']);
+  
   api.add_files([
     'lib/appshunt_client.js',
     'lib/client/templates/help.html',
@@ -31,7 +35,9 @@ Package.onUse(function (api) {
   ], ['client']);
   
   api.add_files([
-  	'lib/appshunt_server.js', 
+  	'lib/appshunt_server.js',
+  	'lib/server/templates/emailPostPending.handlebars',
+  	'lib/server/templates/emailPostApproved.handlebars',  	
   	'lib/server/test.js',
   	'lib/server/users.js'
   ], ['server']);

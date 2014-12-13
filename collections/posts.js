@@ -483,6 +483,17 @@ Meteor.methods({
         set.postedAt = new Date();
       
       var result = Posts.update(post._id, {$set: set}, {validate: false});
+      
+      if (result) {
+		var author = Meteor.users.findOne(post.userId);
+	    var email = getEmail(author);
+	
+		if (email) {
+		  html = getEmailTemplate('emailPostApproved')(getPostProperties(post));
+		
+		  sendEmail(email, 'Post approved', buildEmailTemplate(html));		
+		}
+	  }
     }else{
       flashMessage('You need to be an admin to do that.', "error");
     }
