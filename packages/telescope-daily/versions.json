@@ -6,7 +6,7 @@
     ],
     [
       "aldeed:simple-schema",
-      "1.1.0"
+      "1.2.0"
     ],
     [
       "application-configuration",
@@ -138,7 +138,7 @@
     ],
     [
       "meteorhacks:fast-render",
-      "2.1.0"
+      "2.1.1"
     ],
     [
       "meteorhacks:subs-manager",

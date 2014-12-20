@@ -1,13 +1,10 @@
 <span class="heading">
 Hi <b>{{postAuthorName}}</b><br/>
-thank you for posting: 
+thank you for posting! 
 <br/><br/>
 
-Your post {{#if url}}
-  <a href="{{linkUrl}}" class="action-link">{{postTitle}}}</a>
-{{else}}
-  {{postTitle}}}
-{{/if}} is waiting for approval. We will notify you by email as soon as it will get online.
+Your post: <a href="{{postUrl}}" class="action-link">{{postTitle}}}</a> is waiting for approval. <br/>
+We will notify you by email as soon as it will get online.
 </span><br><br>
 
 {{#if htmlBody}}

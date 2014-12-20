@@ -204,10 +204,10 @@ postHeading = [
 ];
 
 postMeta = [
-  {
+  /*{
     template: 'postAuthor',
     order: 1
-  },
+  },*/
   {
     template: 'postInfo',
     order: 2

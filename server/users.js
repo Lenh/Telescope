@@ -52,8 +52,6 @@ Accounts.onCreateUser(function(options, user){
 
   trackEvent('new user', {username: user.username, email: user.profile.email});
 
-  Accounts.sendEnrollmentEmail(Meteor.userId());
-
   return user;
 });
 

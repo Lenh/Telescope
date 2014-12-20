@@ -1,3 +1,8 @@
+Template.post_submit.showForm = function(){
+   // because the Session variable will most probably be undefined the first time
+   return !Session.get('formSubmitted');
+}
+
 AutoForm.hooks({
   submitPostForm: {
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
@@ -27,11 +32,16 @@ AutoForm.hooks({
           submit.done(error);
         }else{
           // note: find a way to do this in onSuccess instead?
-          trackEvent("new post", {'postId': post._id});
+          //trackEvent("new post", {'postId': post._id});
+		  Session.set("formSubmitted", true);
+		  
           if (post.status === STATUS_PENDING) {
             flashMessage(i18n.t('thanks_your_post_is_awaiting_approval'), 'success');
           }
-          Router.go('post_page', {_id: post._id});
+          setTimeout(function() {
+          	Router.go('post_page', {_id: post._id});
+          	Session.set('formSubmitted',false);
+          }, 3000);
           submit.done();
         }
       });
