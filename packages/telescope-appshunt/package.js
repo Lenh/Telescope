@@ -16,7 +16,8 @@ Package.onUse(function (api) {
 
   api.use([
     'templating',
-    'telescope-theme-hubble'
+    'telescope-theme-hubble',
+    'telescope-module-share'
   ], ['client']);
 
   api.use([
@@ -27,10 +28,10 @@ Package.onUse(function (api) {
     'lib/appshunt_client.js',
     'lib/client/templates/help.html',
     'lib/client/templates/welcome.html',
-    'lib/client/templates/post.html',
-    'lib/client/templates/post.js',   
+/*    'lib/client/templates/post.html',
+    'lib/client/templates/post.js',*/  
     'lib/client/templates/nav.html',
-    'lib/client/templates/nav.js',    
+    'lib/client/templates/nav.js',   
     'lib/client/css/appshunt.css'
   ], ['client']);
   
@@ -38,8 +39,8 @@ Package.onUse(function (api) {
   	'lib/appshunt_server.js',
   	'lib/server/templates/emailPostPending.handlebars',
   	'lib/server/templates/emailPostApproved.handlebars',  	
-  	'lib/server/test.js',
-  	'lib/server/users.js'
+  	/*'lib/server/test.js',
+  	'lib/server/users.js'*/
   ], ['server']);
 
 });

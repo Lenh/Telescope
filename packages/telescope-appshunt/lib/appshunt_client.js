@@ -27,14 +27,33 @@ Meteor.startup(function () {
 });
 
 
-primaryNav.splice(primaryNav.indexOf("search"), 1);
+primaryNav.push(
+  {
+    template: 'helpLink',
+    order: 11
+  }
+);
 
-primaryNav.push("helpLink");
-primaryNav.push("search");
+secondaryNav.push(
+  {
+    template: 'navUserThumbnail',
+    order: 8
+  }
+);
 
-secondaryNav.unshift("navUserThumbnail");
 
-postModules.push({
+for (var i = 0; i < postMeta.length; i++) {
+	if (postMeta[i].template == 'postCommentsLink') {
+		postMeta.splice(i, 1);
+	}	
+}
+
+for (var i = 0; i < postModules.length; i++) {
+	if (postModules[i].template == 'postShare') {
+		postModules[i].order = 60;
+	}	
+}
+/*postModules.push({
   template: 'postUser', 
   position: 'right-right'
-});
+});*/

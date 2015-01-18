@@ -21,56 +21,39 @@ getSchedule = function (parser) {
     // sched = {schedules: [{dw: [2]}]};
     return parser.recur().on(2).dayOfWeek();
 
-    default: // Don't send
-    return null;
+    default: // Once a week (Mondays)
+    return parser.recur().on(2).dayOfWeek();
   }  
 }
 
-SyncedCron.getNext = function (jobName) {
-  var scheduledAt;
-  try {
-    _.some(this._entries, function(entry) {
-      if(entry.name === jobName){
-        var schedule = entry.schedule(Later.parse);
-        scheduledAt = Later.schedule(schedule).next(1);
-        return true;
-      }
-    });
-  } 
-  catch (error) {
-    console.log(error)
-    scheduledAt = 'No job scheduled';
-  }
-  return scheduledAt;
-}
-
-getNextCampaignSchedule = function () {
-  return SyncedCron.getNext('Schedule newsletter');
-}
-
-SyncedCron.add({
-  name: 'Schedule newsletter',
-  schedule: function(parser) {
-    // parser is a later.parse object
-    // var sched;
-    return getSchedule(parser)
-    
-  }, 
-  job: function() {
-    scheduleNextCampaign();
-  }
-});
-
-Meteor.startup(function() {
-  if(getSetting('newsletterFrequency', defaultFrequency) != 0) {
-    SyncedCron.start();
-  };
-});
-
 Meteor.methods({
-  getNextJob: function (jobName) {
-    var nextJob = getNextCampaignSchedule();
+  getNextJob: function () {
+    var nextJob = SyncedCron.nextScheduledAtDate('scheduleNewsletter');
     console.log(nextJob);
     return nextJob;
+  }
+});
+
+resetNewsletterJob = function () {
+  SyncedCron.stop();
+  addJob();
+}
+
+var addJob = function () {
+  SyncedCron.add({
+    name: 'scheduleNewsletter',
+    schedule: function(parser) {
+      // parser is a later.parse object
+      // var sched;
+      return getSchedule(parser)
+    }, 
+    job: function() {
+      scheduleNextCampaign();
+    }
+  });
+}
+Meteor.startup(function () {
+  if (getSetting('enableNewsletter', false)) {
+    addJob();
   }
 });

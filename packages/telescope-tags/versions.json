@@ -1,6 +1,10 @@
 {
   "dependencies": [
     [
+      "aldeed:autoform",
+      "4.2.0"
+    ],
+    [
       "aldeed:simple-schema",
       "1.2.0"
     ],
@@ -57,6 +61,10 @@
       "1.0.2"
     ],
     [
+      "fourseven:scss",
+      "1.0.0"
+    ],
+    [
       "geojson-utils",
       "1.0.1"
     ],
@@ -78,19 +86,19 @@
     ],
     [
       "iron:core",
-      "1.0.3"
+      "1.0.4"
     ],
     [
       "iron:dynamic-template",
-      "1.0.3"
+      "1.0.5"
     ],
     [
       "iron:layout",
-      "1.0.3"
+      "1.0.5"
     ],
     [
       "iron:location",
-      "1.0.3"
+      "1.0.4"
     ],
     [
       "iron:middleware-stack",
@@ -102,7 +110,7 @@
     ],
     [
       "iron:url",
-      "1.0.3"
+      "1.0.4"
     ],
     [
       "jquery",
@@ -113,8 +121,16 @@
       "1.0.1"
     ],
     [
+      "livedata",
+      "1.0.11"
+    ],
+    [
       "logging",
       "1.0.5"
+    ],
+    [
+      "matb33:collection-hooks",
+      "0.7.6"
     ],
     [
       "meteor",
@@ -131,6 +147,10 @@
     [
       "mongo",
       "1.0.9"
+    ],
+    [
+      "mrt:moment",
+      "2.8.1"
     ],
     [
       "observe-sequence",

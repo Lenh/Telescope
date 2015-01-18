@@ -15,8 +15,8 @@ Package.onUse(function (api) {
     'STATUS_APPROVED',
     'STATUS_REJECTED',
     
-    'adminNav', 
-    'viewNav', 
+    'adminMenu', 
+    'viewsMenu', 
     'addToPostSchema', 
     'addToCommentsSchema', 
     'addToSettingsSchema', 
@@ -28,6 +28,7 @@ Package.onUse(function (api) {
     'footerModules',
     'heroModules',
     'postModules',
+    'postThumbnail',
     'postHeading',
     'postMeta',
     'modulePositions',

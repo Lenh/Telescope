@@ -35,47 +35,72 @@ STATUS_REJECTED=3;
 
 
 // array containing nav items; initialize with views menu and admin menu
-primaryNav = ['viewsMenu', 'adminMenu'];
+primaryNav = [
+  {
+    template: 'viewsMenu',
+    order: 10
+  },
+  {
+    template: 'adminMenu',
+    order: 20
+  }
+];
 
-secondaryNav = ['userMenu', 'notificationsMenu', 'submitButton'];
+secondaryNav = [
+  {
+    template: 'userMenu', 
+    order: 10
+  },
+  {
+    template:'notificationsMenu',
+    order: 20
+  },
+  {
+    template: 'submitButton',
+    order: 30
+  }
+];
 
 // array containing items in the admin menu
-adminNav = [
+adminMenu = [
   {
     route: 'posts_pending',
-    label: 'Pending'
+    label: 'Pending',
+    description: 'posts_awaiting_moderation'
   },
   {
     route: 'posts_scheduled',
-    label: 'Scheduled'
+    label: 'Scheduled',
+    description: 'future_scheduled_posts'
   },
   {
     route: 'all-users',
-    label: 'Users'
+    label: 'Users',
+    description: 'users_dashboard'
   },
   {
     route: 'settings',
-    label: 'Settings'
-  },
-  {
-    route: 'toolbox',
-    label: 'Toolbox'
+    label: 'Settings',
+    description: 'telescope_settings_panel'
   }
 ];
 
 // array containing items in the views menu
-viewNav = [
+viewsMenu = [
   {
     route: 'posts_top',
-    label: 'top'
+    label: 'top',
+    description: 'most_popular_posts'
   },
   {
     route: 'posts_new',
-    label: 'new'
+    label: 'new',
+    description: 'newest_posts'
   },
   {
     route: 'posts_best',
-    label: 'best'
+    label: 'best',
+    description: 'highest_ranked_posts_ever'
   }
 ];
 
@@ -117,7 +142,7 @@ viewParameters.pending = function (terms) {
   return {
     find: {
       status: 1
-    }, 
+    },
     options: {sort: {createdAt: -1}},
     showFuture: true
   };
@@ -160,85 +185,76 @@ heroModules = [];
 
 footerModules = [];
 
-// array containing post modules
-modulePositions = [
-  'left-left',
-  'left-center',
-  'left-right',
-  'center-left',
-  'center-center',
-  'center-right',
-  'right-left',
-  'right-center',
-  'right-right'
-];
-
 postModules = [
   {
     template: 'postUpvote',
-    position: 'left-left'
+    order: 1
   },
   {
-    template: 'postActions',
-    position: 'left-right'
+    template: 'postContent',
+    order: 5
   },
   {
-    template: 'postContent', 
-    position: 'center-center'
+    template: 'postAvatars',
+    order: 30
   },
   {
     template: 'postDiscuss',
-    position: 'right-right'
+    order: 40
+  },
+  {
+    template: 'postActions',
+    order: 50
   }
 ];
+
+postThumbnail = [];
 
 postHeading = [
   {
     template: 'postTitle',
-    order: 1
+    order: 10
   },
   {
-    template: 'postDomain', 
-    order: 5
+    template: 'postDomain',
+    order: 20
   }
 ];
 
 postMeta = [
-  /*{
+  {
     template: 'postAuthor',
-    order: 1
-  },*/
+    order: 10
+  },
   {
     template: 'postInfo',
-    order: 2
+    order: 20
   },
   {
     template: 'postCommentsLink',
-    order: 3
-  },  
+    order: 30
+  },
   {
-    template: 'postAdmin', 
-    order: 5
+    template: 'postAdmin',
+    order: 50
   }
 ]
 // ------------------------------ Callbacks ------------------------------ //
 
-postSubmitRenderedCallbacks = [];
 postSubmitClientCallbacks = [];
 postSubmitMethodCallbacks = [];
-postAfterSubmitMethodCallbacks = [];
+postAfterSubmitMethodCallbacks = []; // runs on server only in a timeout
 
-postEditRenderedCallbacks = [];
-postEditClientCallbacks = [];
-postEditMethodCallbacks = []; // not used yet
-postAfterEditMethodCallbacks = []; // not used yet
+postEditClientCallbacks = []; // loops over post object
+postEditMethodCallbacks = []; // loops over modifier (i.e. "{$set: {foo: bar}}") object
+postAfterEditMethodCallbacks = []; // loops over modifier object
 
 commentSubmitRenderedCallbacks = [];
 commentSubmitClientCallbacks = [];
 commentSubmitMethodCallbacks = [];
 commentAfterSubmitMethodCallbacks = [];
 
-commentEditRenderedCallbacks = []; 
+commentEditRenderedCallbacks = [];
 commentEditClientCallbacks = [];
 commentEditMethodCallbacks = []; // not used yet
 commentAfterEditMethodCallbacks = []; // not used yet
@@ -262,13 +278,13 @@ userProfileDisplay = [
   {
     template: 'userUpvotedPosts',
     order: 3
-  },  
+  },
   {
-    template: 'userDownvotedPosts', 
+    template: 'userDownvotedPosts',
     order: 5
-  },  
+  },
   {
-    template: 'userComments', 
+    template: 'userComments',
     order: 5
   }
 ];
