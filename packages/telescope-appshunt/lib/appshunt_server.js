@@ -3,7 +3,7 @@ Accounts.emailTemplates.from = "Appshunt <noreply@appshunt.co>";
 
 postAfterSubmitMethodCallbacks.push(function(post) {
 	if (post.status == STATUS_PENDING) {
-		var email = getEmail(Meteor.user());
+		var email = getEmail(Meteor.users.findOne(post.userId));
 	
 		if (email) {
 			html = getEmailTemplate('emailPostPending')(getPostProperties(post));

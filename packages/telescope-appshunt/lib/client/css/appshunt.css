@@ -34,7 +34,7 @@
 }
 
 .notification-count {
-	color: #DD3416;
+	color: #89B6A5; /*#DD3416;*/
 }
 
 .notification-badge {
@@ -45,7 +45,7 @@
   padding: 0 6px;
   color: white;
   border-radius: 16px;
-  background-color: #DD3416;
+  background-color: #89B6A5; /*#DD3416;*/
   font-size: smaller;
   font-weight: bold;
 }
@@ -65,6 +65,7 @@
 .post .post-share {
 	display: block !important;
 	order: 10 !important;
+	-webkit-order: 10 !important;
 }
 
 .post-share .action-label {
@@ -79,7 +80,7 @@
 .at-error {
 	margin-bottom: 10px;
 	text-align: center;
-	background: #DD3416;
+	background: #d14836; /*#DD3416;*/
 	color: white; 
 	border-radius: 3px;
 }
@@ -87,7 +88,7 @@
 .has-error span {
 	margin-bottom: 10px;
 	text-align: center;
-	background: #DD3416;
+	background: #d14836; /*#DD3416;*/
 	color: white; 
 	border-radius: 3px;
 	display: block;
@@ -96,7 +97,7 @@
 }
 
 .success-message {
-	background: #a3d06d;
+	background: #89B6A5; /*#a3d06d;*/
 }
 
 /*.post-user {

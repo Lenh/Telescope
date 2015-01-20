@@ -1,7 +1,10 @@
-Template.post_submit.showForm = function(){
-   // because the Session variable will most probably be undefined the first time
-   return !Session.get('formSubmitted');
-}
+//Template.post_submit.showForm = function(){
+Template[getTemplate('post_submit')].helpers({
+	showForm: function(){
+		// because the Session variable will most probably be undefined the first time
+		return !Session.get('formSubmitted');
+	}
+});
 
 AutoForm.hooks({
   submitPostForm: {
@@ -13,8 +16,10 @@ AutoForm.hooks({
 
         var post = doc;
 
-        // ------------------------------ Checks ------------------------------ //
+		//Session.set("formSubmitted", true);
 
+        // ------------------------------ Checks ------------------------------ //
+		
         if (!Meteor.user()) {
           flashMessage(i18n.t('you_must_be_logged_in'), 'error');
           return false;
@@ -27,14 +32,13 @@ AutoForm.hooks({
             return currentFunction(result);
         }, post);
 
-		Session.set("formSubmitted", true);
-
         return post;
       }
     },
 
     onSuccess: function(operation, post, template) {      
       template.$('button[type=submit]').removeClass('loading');
+      //template.$('#submitPostForm').hide();
       trackEvent("new post", {'postId': post._id});
       if (post.status === STATUS_PENDING) {
         flashMessage(i18n.t('thanks_your_post_is_awaiting_approval'), 'success');
@@ -42,11 +46,12 @@ AutoForm.hooks({
       
       setTimeout(function() {
 	      Router.go('post_page', {_id: post._id});
-          Session.set('formSubmitted',false);
+          //Session.set('formSubmitted',false);
       }, 3000);
     },
 
     onError: function(operation, error, template) {
+	  //Session.set('formSubmitted',false);  
       template.$('button[type=submit]').removeClass('loading');
       flashMessage(error.message.split('|')[0], 'error'); // workaround because error.details returns undefined
       clearSeenMessages();
