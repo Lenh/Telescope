@@ -53,6 +53,12 @@ for (var i = 0; i < postModules.length; i++) {
 		postModules[i].order = 60;
 	}	
 }
+
+postMeta.push({
+	template: 'postAdminCustom',
+	order: 45		
+});
+
 /*postModules.push({
   template: 'postUser', 
   position: 'right-right'

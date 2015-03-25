@@ -47,7 +47,7 @@ Herald.addCourier('newPost', {
         var p = getPostProperties(this.data);
         var subject = p.postAuthorName+' has created a new post: '+p.postTitle;
         var html = buildEmailTemplate(getEmailTemplate('emailNewPost')(p));
-        sendEmail(getEmail(user), subject, html);
+        //sendEmail(getEmail(user), subject, html);
       }
     }
   }

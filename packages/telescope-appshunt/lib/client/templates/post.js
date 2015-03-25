@@ -1,4 +1,4 @@
-Template[getTemplate('postUser')].helpers({
+/*Template[getTemplate('postUser')].helpers({
   authorName: function(){
     return getAuthorName(this);
   },
@@ -13,4 +13,20 @@ Template[getTemplate('postUser')].helpers({
   	return user;
   }
   
+});*/
+
+Template[getTemplate('postAdminCustom')].helpers({
+  postsMustBeApproved: function () {
+    return !!getSetting('requirePostsApproval');
+  },
+  isPending: function(){
+    return this.status == STATUS_PENDING;
+  }
+});
+
+Template[getTemplate('postAdminCustom')].events({
+  'click .reject-link': function(e, instance){
+    Meteor.call('rejectPost', this);
+    e.preventDefault();
+  }
 });
